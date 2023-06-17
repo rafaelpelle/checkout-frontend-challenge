@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
+import { useDispatch } from 'react-redux';
+import { dataFetchRequested } from '../../actionCreators/checkout';
 import UserTag from '../../components/UserTag';
 import breakpoints from '../../constants/screenBreakpoints';
 import sizes from '../../constants/sizes';
@@ -31,6 +33,12 @@ const OfferList = styled.div`
 `;
 
 function CheckoutPage() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(dataFetchRequested());
+  }, [dispatch]);
+
   return (
     <PageContainer>
       <SidePanel>

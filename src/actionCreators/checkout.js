@@ -1,19 +1,18 @@
-import {
-  DATA_FETCH_REQUESTED,
-  DATA_FETCH_SUCCEEDED,
-  DATA_FETCH_FAILED,
-} from '../constants/actionTypes';
+import types from '../constants/actionTypes';
+
+const { OFFERS_FETCH_REQUESTED, OFFERS_FETCH_SUCCEEDED, OFFERS_FETCH_FAILED } =
+  types;
 
 export const dataFetchRequested = () => ({
-  type: DATA_FETCH_REQUESTED,
+  type: OFFERS_FETCH_REQUESTED,
 });
 
 export const dataFetchSucceeded = (data) => ({
-  type: DATA_FETCH_SUCCEEDED,
+  type: OFFERS_FETCH_SUCCEEDED,
   payload: data,
 });
 
 export const dataFetchFailed = (errorMsg) => ({
-  type: DATA_FETCH_FAILED,
+  type: OFFERS_FETCH_FAILED,
   error: errorMsg,
 });
