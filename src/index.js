@@ -3,10 +3,10 @@ import ReactDOM from 'react-dom/client';
 import createSagaMiddleware from 'redux-saga';
 import { configureStore } from '@reduxjs/toolkit';
 import { Provider } from 'react-redux';
-import './index.css';
 import App from './App';
 import rootReducer from './reducers';
 import rootSaga from './sagas';
+import './index.css';
 
 const sagaMiddleware = createSagaMiddleware();
 

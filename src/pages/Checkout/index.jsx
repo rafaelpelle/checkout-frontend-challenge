@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import UserTag from '../../components/UserTag';
 import breakpoints from '../../constants/screenBreakpoints';
 import sizes from '../../constants/sizes';
 
@@ -19,16 +20,27 @@ const PageContainer = styled.div`
 const SidePanel = styled.div`
   width: 100%;
   max-width: 330px;
+
+  h4 {
+    margin-bottom: 6px;
+  }
+`;
+
+const OfferList = styled.div`
+  margin: 30px 0;
 `;
 
 function CheckoutPage() {
   return (
     <PageContainer>
       <SidePanel>
-        <h1>CheckoutPage</h1>
+        <h1>TO-DO</h1>
       </SidePanel>
       <SidePanel>
-        <h1>CheckoutPage</h1>
+        <h4>Confira o seu plano:</h4>
+        <UserTag>fulano@ciclano.com.br</UserTag>
+
+        <OfferList></OfferList>
       </SidePanel>
     </PageContainer>
   );
