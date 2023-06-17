@@ -1,10 +1,11 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import routes from './routes';
+import NavHeader from './components/NavHeader';
 
 function App() {
   return (
     <BrowserRouter>
-      <header>TO-DO Header component</header>
+      <NavHeader />
       <Routes>
         {routes.map(({ path, element }) => (
           <Route exact path={path} element={element} key={path} />
