@@ -5,7 +5,7 @@ import { getOffers } from '../api/offers';
 const { OFFERS_FETCH_REQUESTED, OFFERS_FETCH_SUCCEEDED, OFFERS_FETCH_FAILED } =
   actionTypes;
 
-function* fetchOffers(action) {
+function* fetchOffers() {
   try {
     const { data } = yield call(getOffers);
 
