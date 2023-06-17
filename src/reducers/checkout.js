@@ -5,9 +5,11 @@ const { OFFERS_FETCH_REQUESTED, OFFERS_FETCH_SUCCEEDED, OFFERS_FETCH_FAILED } =
   actionTypes;
 
 const INITIAL_STATE = {
-  data: null,
-  status: status.idle,
-  error: null,
+  offers: {
+    data: null,
+    status: status.idle,
+    error: null,
+  },
 };
 
 const checkoutReducer = (state = INITIAL_STATE, action) => {
@@ -15,19 +17,30 @@ const checkoutReducer = (state = INITIAL_STATE, action) => {
     case OFFERS_FETCH_REQUESTED:
       return {
         ...state,
-        status: status.loading,
+        offers: {
+          ...state.offers,
+          data: null,
+          status: status.loading,
+          error: null,
+        },
       };
     case OFFERS_FETCH_SUCCEEDED:
       return {
         ...state,
-        data: action.payload,
-        status: status.success,
+        offers: {
+          ...state.offers,
+          data: action.payload,
+          status: status.success,
+        },
       };
     case OFFERS_FETCH_FAILED:
       return {
         ...state,
-        error: action.error,
-        status: status.error,
+        offers: {
+          ...state.offers,
+          status: status.error,
+          error: action.error,
+        },
       };
     default:
       return { ...state };

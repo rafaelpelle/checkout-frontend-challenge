@@ -1,10 +1,12 @@
 import React, { useEffect } from 'react';
 import styled from 'styled-components';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { dataFetchRequested } from '../../actionCreators/checkout';
 import UserTag from '../../components/UserTag';
+import OfferItem from '../../components/OfferItem';
 import breakpoints from '../../constants/screenBreakpoints';
 import sizes from '../../constants/sizes';
+import status from '../../constants/status';
 
 const PageContainer = styled.div`
   display: flex;
@@ -35,6 +37,14 @@ const OfferList = styled.div`
 function CheckoutPage() {
   const dispatch = useDispatch();
 
+  const offerStatus = useSelector(
+    ({ checkoutReducer }) => checkoutReducer.offers.status,
+  );
+
+  const offerData = useSelector(
+    ({ checkoutReducer }) => checkoutReducer.offers.data,
+  );
+
   useEffect(() => {
     dispatch(dataFetchRequested());
   }, [dispatch]);
@@ -48,7 +58,19 @@ function CheckoutPage() {
         <h4>Confira o seu plano:</h4>
         <UserTag>fulano@ciclano.com.br</UserTag>
 
-        <OfferList></OfferList>
+        {offerStatus === status.success && (
+          <OfferList>
+            {offerData.map((item) => (
+              <OfferItem key={item.id} item={item} />
+            ))}
+          </OfferList>
+        )}
+
+        {offerStatus === status.error && (
+          <p>
+            Houve um problema e não foi possível carregar os planos disponíveis
+          </p>
+        )}
       </SidePanel>
     </PageContainer>
   );
