@@ -1,11 +1,14 @@
 import { call, put, takeLatest } from 'redux-saga/effects';
+import actionTypes from '../constants/actionTypes';
+
+const { DATA_FETCH_SUCCEEDED, DATA_FETCH_FAILED } = actionTypes;
 
 function* fetchData(action) {
   try {
     const data = yield call('Api.fetchData');
-    yield put({ type: 'DATA_FETCH_SUCCEEDED', payload: data });
+    yield put({ type: DATA_FETCH_SUCCEEDED, payload: data });
   } catch (error) {
-    yield put({ type: 'DATA_FETCH_FAILED', payload: error.message });
+    yield put({ type: DATA_FETCH_FAILED, error: error.message });
   }
 }
 
