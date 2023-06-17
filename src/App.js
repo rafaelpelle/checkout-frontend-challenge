@@ -1,13 +1,18 @@
-import { useSelector } from 'react-redux';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import routes from './routes';
 
 function App() {
-  const data = useSelector(({ checkoutReducer }) => checkoutReducer.data);
-
   return (
-    <div>
-      <h1>Initializing project...</h1>
-      <p>{data}</p>
-    </div>
+    <BrowserRouter>
+      <header>TO-DO Header component</header>
+      <Routes>
+        {routes.map(({ path, element }) => (
+          <Route exact path={path} element={element} key={path} />
+        ))}
+
+        <Route path="*" element={<Navigate to="/checkout" replace />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
