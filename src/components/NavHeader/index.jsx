@@ -23,7 +23,7 @@ function NavHeader() {
       <BackButton />
       <Logo />
       <div />
-      {/* this empty div is only a easy way to align the BackButton and Logo */}
+      {/* The empty div above is only a easy way to align the BackButton and Logo */}
     </StyledHeader>
   );
 }
