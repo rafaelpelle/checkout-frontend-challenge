@@ -16,12 +16,20 @@ const PageContainer = styled.div`
   }
 `;
 
+const SidePanel = styled.div`
+  width: 100%;
+  max-width: 330px;
+`;
+
 function CheckoutPage() {
   return (
     <PageContainer>
-      <h1>CheckoutPage</h1>
-      <h1>CheckoutPage</h1>
-      <h1>CheckoutPage</h1>
+      <SidePanel>
+        <h1>CheckoutPage</h1>
+      </SidePanel>
+      <SidePanel>
+        <h1>CheckoutPage</h1>
+      </SidePanel>
     </PageContainer>
   );
 }
