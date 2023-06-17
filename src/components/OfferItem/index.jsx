@@ -8,7 +8,7 @@ import {
 
 const separator = '\u00A0\u00A0|\u00A0\u00A0';
 
-function OfferItem(props) {
+function OfferItem({ item, checked, onClick }) {
   const {
     id,
     title,
@@ -17,13 +17,13 @@ function OfferItem(props) {
     installments,
     discountAmmount,
     discountPercentage,
-  } = props.item;
+  } = item;
 
   const price = fullPrice - discountAmmount;
   const installmentValue = price / installments;
 
   return (
-    <Container>
+    <Container onClick={onClick}>
       <label htmlFor={id}>
         <strong>
           {title}
@@ -48,7 +48,7 @@ function OfferItem(props) {
       <DiscountBadge htmlFor={id}>
         -{numberToPercentage(discountPercentage)}
       </DiscountBadge>
-      <input type="radio" value={id} id={id} />
+      <input type="radio" value={id} id={id} checked={checked} />
     </Container>
   );
 }

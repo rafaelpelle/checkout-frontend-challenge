@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import { useDispatch, useSelector } from 'react-redux';
-import { dataFetchRequested } from '../../actionCreators/checkout';
+import { dataFetchRequested, selectOffer } from '../../actionCreators/checkout';
 import UserTag from '../../components/UserTag';
 import OfferItem from '../../components/OfferItem';
 import breakpoints from '../../constants/screenBreakpoints';
@@ -45,6 +45,10 @@ function CheckoutPage() {
     ({ checkoutReducer }) => checkoutReducer.offers.data,
   );
 
+  const selectedOffer = useSelector(
+    ({ checkoutReducer }) => checkoutReducer.selectedOffer.data,
+  );
+
   useEffect(() => {
     dispatch(dataFetchRequested());
   }, [dispatch]);
@@ -61,7 +65,14 @@ function CheckoutPage() {
         {offerStatus === status.success && (
           <OfferList>
             {offerData.map((item) => (
-              <OfferItem key={item.id} item={item} />
+              <OfferItem
+                key={item.id}
+                item={item}
+                checked={selectedOffer?.id === item.id}
+                onClick={() => {
+                  dispatch(selectOffer(item));
+                }}
+              />
             ))}
           </OfferList>
         )}
