@@ -7,6 +7,7 @@ import OfferItem from '../../components/OfferItem';
 import breakpoints from '../../constants/screenBreakpoints';
 import sizes from '../../constants/sizes';
 import status from '../../constants/status';
+import questionIconSrc from '../../assets/question-mark-icon.svg';
 
 const PageContainer = styled.div`
   display: flex;
@@ -27,6 +28,17 @@ const SidePanel = styled.div`
 
   h4 {
     margin-bottom: 6px;
+  }
+
+  .question-text {
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img {
+      margin-left: 12px;
+    }
   }
 `;
 
@@ -63,18 +75,24 @@ function CheckoutPage() {
         <UserTag>fulano@ciclano.com.br</UserTag>
 
         {offerStatus === status.success && (
-          <OfferList>
-            {offerData.map((item) => (
-              <OfferItem
-                key={item.id}
-                item={item}
-                checked={selectedOffer?.id === item.id}
-                onClick={() => {
-                  dispatch(selectOffer(item));
-                }}
-              />
-            ))}
-          </OfferList>
+          <React.Fragment>
+            <OfferList>
+              {offerData.map((item) => (
+                <OfferItem
+                  key={item.id}
+                  item={item}
+                  checked={selectedOffer?.id === item.id}
+                  onClick={() => {
+                    dispatch(selectOffer(item));
+                  }}
+                />
+              ))}
+            </OfferList>
+
+            <span className="question-text">
+              Sobre a cobrança <img src={questionIconSrc} alt="Question icon" />{' '}
+            </span>
+          </React.Fragment>
         )}
 
         {offerStatus === status.error && (
