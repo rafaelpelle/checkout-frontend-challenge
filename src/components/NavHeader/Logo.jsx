@@ -4,6 +4,7 @@ import logoSrc from '../../assets/logo192.png';
 
 const StyledLogo = styled.img`
   width: 40px;
+  height: 29px;
 `;
 
 function Logo() {
