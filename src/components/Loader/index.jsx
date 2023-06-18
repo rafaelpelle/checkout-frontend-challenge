@@ -17,7 +17,7 @@ const StyledContainer = styled.div`
 `;
 
 const StyledSpinner = styled.div`
-  border: 16px solid ${colors.gray4};
+  border: 16px solid ${colors.gray3};
   border-top: 16px solid ${colors.darkBlue};
   border-radius: 50%;
   width: 120px;
