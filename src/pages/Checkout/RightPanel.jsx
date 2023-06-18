@@ -46,7 +46,7 @@ function RightPanel() {
                   key={item.id}
                   item={item}
                   checked={isChecked}
-                  onClick={() => {
+                  handleChange={() => {
                     if (!isChecked) {
                       dispatch(selectOffer(item));
                     }

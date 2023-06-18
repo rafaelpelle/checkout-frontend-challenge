@@ -8,7 +8,7 @@ import {
 
 const separator = '\u00A0\u00A0|\u00A0\u00A0';
 
-function OfferItem({ item, checked, onClick }) {
+function OfferItem({ item, checked, handleChange }) {
   const {
     id,
     title,
@@ -23,7 +23,7 @@ function OfferItem({ item, checked, onClick }) {
   const installmentValue = price / installments;
 
   return (
-    <Container onClick={onClick}>
+    <Container>
       <label htmlFor={id}>
         <strong>
           {title}
@@ -48,7 +48,13 @@ function OfferItem({ item, checked, onClick }) {
       <DiscountBadge htmlFor={id}>
         -{numberToPercentage(discountPercentage)}
       </DiscountBadge>
-      <input type="radio" value={id} id={id} checked={checked} />
+      <input
+        type="radio"
+        value={id}
+        id={id}
+        checked={checked}
+        onChange={handleChange}
+      />
     </Container>
   );
 }
