@@ -25,7 +25,7 @@ function* fetchOffers() {
   }
 }
 
-function* createSubscription({ payload }) {
+function* createSubscription({ payload, meta }) {
   try {
     const { data } = yield call(postSubscription, {
       ...payload,
@@ -38,6 +38,8 @@ function* createSubscription({ payload }) {
     }
 
     yield put({ type: SUBSCRIPTION_SUCCEEDED, payload: data });
+
+    meta.navigate('/success');
   } catch (error) {
     yield put({ type: SUBSCRIPTION_FAILED, error: error.message });
   }

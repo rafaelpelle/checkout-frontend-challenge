@@ -24,9 +24,10 @@ export const dataFetchFailed = (errorMsg) => ({
   error: errorMsg,
 });
 
-export const subscriptionRequested = (data) => ({
+export const subscriptionRequested = (data, navigate) => ({
   type: SUBSCRIPTION_REQUESTED,
   payload: data,
+  meta: { navigate },
 });
 
 export const subscriptionSucceeded = (data) => ({

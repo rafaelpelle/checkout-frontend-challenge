@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import styled from 'styled-components';
+import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { useForm } from 'react-hook-form';
 import { subscriptionRequested } from '../../actionCreators/checkout';
@@ -42,6 +43,7 @@ const ExpirationCVVColumn = styled.div`
 
 function LeftPanel() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const { offerId, optionsComponents } = useInstallmentSelector();
 
@@ -50,7 +52,7 @@ function LeftPanel() {
   });
 
   const onSubmit = (data) => {
-    dispatch(subscriptionRequested({ ...data, offerId }));
+    dispatch(subscriptionRequested({ ...data, offerId }, navigate));
   };
 
   useEffect(() => {
