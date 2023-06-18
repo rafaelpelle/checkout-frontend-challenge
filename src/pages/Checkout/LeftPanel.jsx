@@ -6,6 +6,7 @@ import { useInstallmentSelector } from '../../hooks/useInstallmentSelector';
 import formInputIds from '../../constants/formInputIds';
 import PaymentMethodsImg from '../../components/PaymentMethodsImg';
 import InputField from '../../components/InputField';
+import Button from '../../components/Button';
 import SelectInstallments from '../../components/SelectInstallments';
 import ContentPanel from './ContentPanel';
 
@@ -47,6 +48,9 @@ function LeftPanel() {
   const onSubmit = (data) => {
     console.log(data);
   };
+
+  const shouldRenderInstallments = optionsComponents?.length > 0;
+  const disableButton = !shouldRenderInstallments || !formState.isValid;
 
   return (
     <ContentPanel>
@@ -121,7 +125,9 @@ function LeftPanel() {
           />
         )}
 
-        <button type="submit">submit</button>
+        <Button type="submit" disabled={disableButton}>
+          Finalizar pagamento
+        </Button>
       </form>
     </ContentPanel>
   );

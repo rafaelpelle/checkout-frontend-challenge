@@ -7,6 +7,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+input, button {
+  font-family: 'DM Sans';
+}
+
 h4 {
   font-size: 20px;
   font-weight: 400;

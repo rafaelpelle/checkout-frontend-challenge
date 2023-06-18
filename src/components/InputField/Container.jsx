@@ -21,7 +21,6 @@ const Container = styled.div`
     font-size: 16px;
     line-height: 21px;
     letter-spacing: -0.02em;
-    font-family: 'DM Sans';
   }
 
   strong {
