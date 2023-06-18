@@ -41,7 +41,10 @@ function* createSubscription({ payload, meta }) {
 
     meta.navigate('/success');
   } catch (error) {
-    yield put({ type: SUBSCRIPTION_FAILED, error: error.message });
+    yield put({
+      type: SUBSCRIPTION_FAILED,
+      error: error.message ?? 'Não foi possível realizar o pagamento...',
+    });
   }
 }
 

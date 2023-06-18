@@ -1,11 +1,12 @@
 import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useForm } from 'react-hook-form';
 import { subscriptionRequested } from '../../actionCreators/checkout';
-import validations from '../../utils/validations';
 import { useInstallmentSelector } from '../../hooks/useInstallmentSelector';
+import colors from '../../constants/colors';
+import validations from '../../utils/validations';
 import formInputIds from '../../constants/formInputIds';
 import PaymentMethodsImg from '../../components/PaymentMethodsImg';
 import InputField from '../../components/InputField';
@@ -41,6 +42,13 @@ const ExpirationCVVColumn = styled.div`
   max-width: 140px;
 `;
 
+const ErrorText = styled.p`
+  color: ${colors.red};
+  font-size: 12px;
+  font-weight: 700;
+  text-align: center;
+`;
+
 function LeftPanel() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -58,6 +66,10 @@ function LeftPanel() {
   useEffect(() => {
     setValue(installments, optionsComponents[0]?.props?.value);
   }, [offerId, optionsComponents, setValue]);
+
+  const subscriptionError = useSelector(
+    ({ checkoutReducer }) => checkoutReducer.subscription.error,
+  );
 
   const shouldRenderInstallments = optionsComponents?.length > 0;
   const disableButton = !shouldRenderInstallments || !formState.isValid;
@@ -138,6 +150,7 @@ function LeftPanel() {
         <Button type="submit" disabled={disableButton}>
           Finalizar pagamento
         </Button>
+        <ErrorText>{subscriptionError}</ErrorText>
       </form>
     </ContentPanel>
   );
