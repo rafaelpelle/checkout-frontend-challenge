@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { useForm } from 'react-hook-form';
 import validations from '../../utils/validations';
+import { useInstallmentSelector } from '../../hooks/useInstallmentSelector';
 import formInputIds from '../../constants/formInputIds';
 import PaymentMethodsImg from '../../components/PaymentMethodsImg';
 import InputField from '../../components/InputField';
@@ -40,6 +41,8 @@ function LeftPanel() {
   const { register, handleSubmit, formState } = useForm({
     mode: 'onBlur',
   });
+
+  const { optionsComponents } = useInstallmentSelector();
 
   const onSubmit = (data) => {
     console.log(data);
@@ -106,18 +109,19 @@ function LeftPanel() {
           error={formState.errors[couponCode]}
           validation={validations[couponCode]}
         />
-        <SelectInstallments
-          label="Número de parcelas"
-          id={installments}
-          placeholder="Selecionar"
-          register={register}
-          error={formState.errors[installments]}
-          validation={validations[installments]}
-        />
+        {optionsComponents?.length > 0 && (
+          <SelectInstallments
+            label="Número de parcelas"
+            id={installments}
+            placeholder="Selecionar"
+            register={register}
+            error={formState.errors[installments]}
+            validation={validations[installments]}
+            optionsComponents={optionsComponents}
+          />
+        )}
 
-        <button type="submit" onClick={() => console.log(formState.errors)}>
-          submit
-        </button>
+        <button type="submit">submit</button>
       </form>
     </ContentPanel>
   );
