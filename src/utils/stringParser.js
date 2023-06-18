@@ -15,3 +15,8 @@ export const numberToPercentage = (number) => {
 
   return `${number * 100}%`;
 };
+
+export const formatCPF = (cpf) => {
+  const sanitized = cpf.replace(/[^\d]/g, '');
+  return sanitized.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4');
+};

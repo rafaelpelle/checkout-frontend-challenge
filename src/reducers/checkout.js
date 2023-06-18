@@ -68,9 +68,6 @@ const checkoutReducer = (state = INITIAL_STATE, action) => {
     case SUBSCRIPTION_SUCCEEDED:
       return {
         ...state,
-        selectedOffer: {
-          data: null,
-        },
         subscription: {
           ...state.subscription,
           data: action.payload,
