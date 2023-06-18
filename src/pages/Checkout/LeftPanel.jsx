@@ -26,6 +26,16 @@ const Subtitle = styled.p`
   margin: 0;
 `;
 
+const Row = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;
+
+const ExpirationCVVColumn = styled.div`
+  max-width: 140px;
+`;
+
 function LeftPanel() {
   const { register, handleSubmit, formState } = useForm({
     mode: 'onBlur',
@@ -50,22 +60,28 @@ function LeftPanel() {
           error={formState.errors[creditCardNumber]}
           validation={validations[creditCardNumber]}
         />
-        <InputField
-          label="Validade"
-          id={creditCardExpirationDate}
-          placeholder="MM/AA"
-          register={register}
-          error={formState.errors[creditCardExpirationDate]}
-          validation={validations[creditCardExpirationDate]}
-        />
-        <InputField
-          label="CVV"
-          id={creditCardCVV}
-          placeholder="000"
-          register={register}
-          error={formState.errors[creditCardCVV]}
-          validation={validations[creditCardCVV]}
-        />
+        <Row>
+          <ExpirationCVVColumn>
+            <InputField
+              label="Validade"
+              id={creditCardExpirationDate}
+              placeholder="MM/AA"
+              register={register}
+              error={formState.errors[creditCardExpirationDate]}
+              validation={validations[creditCardExpirationDate]}
+            />
+          </ExpirationCVVColumn>
+          <ExpirationCVVColumn>
+            <InputField
+              label="CVV"
+              id={creditCardCVV}
+              placeholder="000"
+              register={register}
+              error={formState.errors[creditCardCVV]}
+              validation={validations[creditCardCVV]}
+            />
+          </ExpirationCVVColumn>
+        </Row>
         <InputField
           label="Nome impresso no cartão"
           id={creditCardHolder}
