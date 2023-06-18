@@ -9,6 +9,7 @@ const {
   creditCardHolder,
   creditCardCPF,
   couponCode,
+  installments,
 } = formInputIds;
 
 const validations = {
@@ -42,6 +43,9 @@ const validations = {
   },
   [couponCode]: {
     required: false,
+  },
+  [installments]: {
+    required: true,
   },
 };
 

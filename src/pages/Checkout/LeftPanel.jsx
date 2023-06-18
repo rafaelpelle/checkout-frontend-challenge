@@ -5,6 +5,7 @@ import validations from '../../utils/validations';
 import formInputIds from '../../constants/formInputIds';
 import PaymentMethodsImg from '../../components/PaymentMethodsImg';
 import InputField from '../../components/InputField';
+import SelectInstallments from '../../components/SelectInstallments';
 import ContentPanel from './ContentPanel';
 
 const {
@@ -14,6 +15,7 @@ const {
   creditCardHolder,
   creditCardCPF,
   couponCode,
+  installments,
 } = formInputIds;
 
 const Title = styled.h4`
@@ -86,6 +88,15 @@ function LeftPanel() {
           placeholder="Insira aqui"
           register={register}
           error={formState.errors[couponCode]}
+          validation={validations[couponCode]}
+        />
+        <SelectInstallments
+          label="Número de parcelas"
+          id={installments}
+          placeholder="Selecionar"
+          register={register}
+          error={formState.errors[installments]}
+          validation={validations[installments]}
         />
 
         <button type="submit" onClick={() => console.log(formState.errors)}>
