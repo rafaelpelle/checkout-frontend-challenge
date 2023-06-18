@@ -17,13 +17,17 @@ const StyledHeader = styled.header`
   }
 `;
 
+/* The EmptySpace is only a easy way to align the BackButton and Logo */
+const EmptySpace = styled.div`
+  width: 24px;
+`;
+
 function NavHeader() {
   return (
     <StyledHeader>
       <BackButton />
       <Logo />
-      <div />
-      {/* The empty div above is only a easy way to align the BackButton and Logo */}
+      <EmptySpace />
     </StyledHeader>
   );
 }
