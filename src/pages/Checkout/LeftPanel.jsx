@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
 import styled from 'styled-components';
+import { useDispatch } from 'react-redux';
 import { useForm } from 'react-hook-form';
+import { subscriptionRequested } from '../../actionCreators/checkout';
 import validations from '../../utils/validations';
 import { useInstallmentSelector } from '../../hooks/useInstallmentSelector';
 import formInputIds from '../../constants/formInputIds';
@@ -39,19 +41,21 @@ const ExpirationCVVColumn = styled.div`
 `;
 
 function LeftPanel() {
-  const { selectedOfferId, optionsComponents } = useInstallmentSelector();
+  const dispatch = useDispatch();
+
+  const { offerId, optionsComponents } = useInstallmentSelector();
 
   const { register, handleSubmit, formState, setValue } = useForm({
     mode: 'onBlur',
   });
 
   const onSubmit = (data) => {
-    console.log(data);
+    dispatch(subscriptionRequested({ ...data, offerId }));
   };
 
   useEffect(() => {
     setValue(installments, optionsComponents[0]?.props?.value);
-  }, [selectedOfferId, optionsComponents, setValue]);
+  }, [offerId, optionsComponents, setValue]);
 
   const shouldRenderInstallments = optionsComponents?.length > 0;
   const disableButton = !shouldRenderInstallments || !formState.isValid;

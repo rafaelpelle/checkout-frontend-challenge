@@ -5,6 +5,9 @@ const {
   OFFERS_FETCH_REQUESTED,
   OFFERS_FETCH_SUCCEEDED,
   OFFERS_FETCH_FAILED,
+  SUBSCRIPTION_REQUESTED,
+  SUBSCRIPTION_SUCCEEDED,
+  SUBSCRIPTION_FAILED,
   SELECT_OFFER,
 } = actionTypes;
 
@@ -17,6 +20,11 @@ const INITIAL_STATE = {
   selectedOffer: {
     data: null,
   },
+  subscription: {
+    data: null,
+    status: status.idle,
+    error: null,
+  },
 };
 
 const checkoutReducer = (state = INITIAL_STATE, action) => {
@@ -25,7 +33,6 @@ const checkoutReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         offers: {
-          ...state.offers,
           data: null,
           status: status.loading,
           error: null,
@@ -45,6 +52,36 @@ const checkoutReducer = (state = INITIAL_STATE, action) => {
         ...state,
         offers: {
           ...state.offers,
+          status: status.error,
+          error: action.error,
+        },
+      };
+    case SUBSCRIPTION_REQUESTED:
+      return {
+        ...state,
+        subscription: {
+          data: null,
+          status: status.loading,
+          error: null,
+        },
+      };
+    case SUBSCRIPTION_SUCCEEDED:
+      return {
+        ...state,
+        selectedOffer: {
+          data: null,
+        },
+        subscription: {
+          ...state.subscription,
+          data: action.payload,
+          status: status.success,
+        },
+      };
+    case SUBSCRIPTION_FAILED:
+      return {
+        ...state,
+        subscription: {
+          ...state.subscription,
           status: status.error,
           error: action.error,
         },
