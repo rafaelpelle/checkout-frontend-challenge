@@ -13,7 +13,8 @@ const Container = styled.div`
     color: ${colors.gray4};
   }
 
-  /* input {
+  select {
+    background: transparent;
     outline: none;
     border: none;
     border-bottom: 1px solid ${colors.gray1};
@@ -22,7 +23,7 @@ const Container = styled.div`
     line-height: 21px;
     letter-spacing: -0.02em;
     font-family: 'DM Sans';
-  } */
+  }
 
   strong {
     color: ${colors.red};
