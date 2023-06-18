@@ -9,7 +9,7 @@ const PageContainer = styled.div`
   width: 100vw;
 
   @media only screen and (max-width: ${breakpoints.lg}) {
-    flex-direction: column;
+    flex-direction: column-reverse;
     justify-content: flex-start;
     align-items: center;
   }
