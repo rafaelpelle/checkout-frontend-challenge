@@ -3,6 +3,10 @@ import { useSelector } from 'react-redux';
 import { numberToMonetaryString } from '../utils/stringParser';
 
 export const useInstallmentSelector = () => {
+  const selectedOfferId = useSelector(
+    ({ checkoutReducer }) => checkoutReducer.selectedOffer.data?.id,
+  );
+
   const fullPrice = useSelector(
     ({ checkoutReducer }) => checkoutReducer.selectedOffer.data?.fullPrice,
   );
@@ -36,6 +40,7 @@ export const useInstallmentSelector = () => {
   );
 
   return {
+    selectedOfferId,
     installments,
     optionsList,
     optionsComponents,

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import { useForm } from 'react-hook-form';
 import validations from '../../utils/validations';
@@ -39,15 +39,19 @@ const ExpirationCVVColumn = styled.div`
 `;
 
 function LeftPanel() {
-  const { register, handleSubmit, formState } = useForm({
+  const { selectedOfferId, optionsComponents } = useInstallmentSelector();
+
+  const { register, handleSubmit, formState, setValue } = useForm({
     mode: 'onBlur',
   });
-
-  const { optionsComponents } = useInstallmentSelector();
 
   const onSubmit = (data) => {
     console.log(data);
   };
+
+  useEffect(() => {
+    setValue(installments, optionsComponents[0]?.props?.value);
+  }, [selectedOfferId, optionsComponents, setValue]);
 
   const shouldRenderInstallments = optionsComponents?.length > 0;
   const disableButton = !shouldRenderInstallments || !formState.isValid;
