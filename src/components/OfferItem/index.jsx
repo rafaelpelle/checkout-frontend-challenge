@@ -23,7 +23,7 @@ function OfferItem({ item, checked, handleChange }) {
   const installmentValue = price / installments;
 
   return (
-    <Container>
+    <Container onClick={handleChange}>
       <label htmlFor={id}>
         <strong>
           {title}
@@ -48,13 +48,7 @@ function OfferItem({ item, checked, handleChange }) {
       <DiscountBadge htmlFor={id}>
         -{numberToPercentage(discountPercentage)}
       </DiscountBadge>
-      <input
-        type="radio"
-        value={id}
-        id={id}
-        checked={checked}
-        onChange={handleChange}
-      />
+      <input type="radio" value={id} id={id} checked={checked} readOnly />
     </Container>
   );
 }
