@@ -12,6 +12,10 @@ const OfferList = styled.div`
   margin: 30px 0;
 `;
 
+const Title = styled.h4`
+  margin-bottom: 6px;
+`;
+
 function RightPanel() {
   const dispatch = useDispatch();
 
@@ -29,7 +33,7 @@ function RightPanel() {
 
   return (
     <ContentPanel>
-      <h4>Confira o seu plano:</h4>
+      <Title>Confira o seu plano:</Title>
       <UserTag>fulano@ciclano.com.br</UserTag>
 
       {offerStatus === status.success && (
