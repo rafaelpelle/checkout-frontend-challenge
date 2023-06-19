@@ -23,7 +23,11 @@ function InputField({ id, label, register, validation, error, ...rest }) {
         <input {...inputProps} />
       )}
 
-      {error && <strong>{error.message || 'Este valor é inválido'}</strong>}
+      {error && (
+        <strong data-cy={`${id}Error`}>
+          {error.message || 'Este valor é inválido'}
+        </strong>
+      )}
     </Container>
   );
 }

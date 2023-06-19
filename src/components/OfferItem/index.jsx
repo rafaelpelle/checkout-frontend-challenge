@@ -23,7 +23,7 @@ function OfferItem({ item, checked, handleChange }) {
   const installmentValue = price / installments;
 
   return (
-    <Container onClick={handleChange}>
+    <Container onClick={handleChange} data-cy={`OfferItem${id}`}>
       <label htmlFor={id}>
         <strong>
           {title}

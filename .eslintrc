@@ -2,7 +2,8 @@
   "extends": [
     "react-app",
     "prettier",
-    "plugin:prettier/recommended"
+    "plugin:prettier/recommended",
+    "plugin:cypress/recommended"
   ],
   "rules": {
     "prettier/prettier": "warn"

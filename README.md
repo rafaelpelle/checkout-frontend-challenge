@@ -36,3 +36,11 @@ Abra [http://localhost:3000](http://localhost:3000) para visualizar no seu brows
 ```
 npm run build
 ```
+
+<br>
+
+### Executar os testes no modo interativo:
+
+```
+npm run test
+```
