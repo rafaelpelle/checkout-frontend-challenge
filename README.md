@@ -39,8 +39,10 @@ npm run build
 
 <br>
 
-### Executar os testes no modo interativo:
+### Executar os testes E2E:
 
 ```
-npm run test
+npm run cypress
 ```
+
+Lembre-se que o cypress está configurado para acessar o ambiente [http://localhost:3000](http://localhost:3000), então o projeto deve estar rodando antes de executar o comando de testes.

@@ -41,12 +41,14 @@ function SuccessPage() {
   return (
     <PageContainer>
       <Icon alt="Check icon" src={CheckIconSrc} />
-      <Title>Parabéns!</Title>
-      <Subtitle>Sua assinatura foi realizada com sucesso.</Subtitle>
+      <Title data-cy="Title">Parabéns!</Title>
+      <Subtitle data-cy="Subtitle">
+        Sua assinatura foi realizada com sucesso.
+      </Subtitle>
       <SubscriptionInfo />
-      <Link>Gerenciar assinatura</Link>
+      <Link data-cy="Link">Gerenciar assinatura</Link>
       <ButtonContainer>
-        <Button>IR PARA A HOME</Button>
+        <Button data-cy="Button">IR PARA A HOME</Button>
       </ButtonContainer>
     </PageContainer>
   );
