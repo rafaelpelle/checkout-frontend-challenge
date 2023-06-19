@@ -53,19 +53,22 @@ function LeftPanel() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const { offerId, optionsComponents } = useInstallmentSelector();
+  const { selectedOfferId, optionsComponents } = useInstallmentSelector();
 
   const { register, handleSubmit, formState, setValue } = useForm({
     mode: 'onBlur',
   });
 
   const onSubmit = (data) => {
-    dispatch(subscriptionRequested({ ...data, offerId }, navigate));
+    dispatch(
+      subscriptionRequested({ ...data, offerId: selectedOfferId }, navigate),
+    );
   };
 
   useEffect(() => {
     setValue(installments, optionsComponents[0]?.props?.value);
-  }, [offerId, optionsComponents, setValue]);
+    setValue(couponCode, '');
+  }, [selectedOfferId, optionsComponents, setValue]);
 
   const subscriptionError = useSelector(
     ({ checkoutReducer }) => checkoutReducer.subscription.error,
