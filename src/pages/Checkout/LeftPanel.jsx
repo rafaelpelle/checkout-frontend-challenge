@@ -71,6 +71,10 @@ function LeftPanel() {
     ({ checkoutReducer }) => checkoutReducer.subscription.error,
   );
 
+  const selectedAcceptsCoupon = useSelector(
+    ({ checkoutReducer }) => checkoutReducer.selectedOffer?.data?.acceptsCoupon,
+  );
+
   const shouldRenderInstallments = optionsComponents?.length > 0;
   const disableButton = !shouldRenderInstallments || !formState.isValid;
 
@@ -127,14 +131,16 @@ function LeftPanel() {
           error={formState.errors[creditCardCPF]}
           validation={validations[creditCardCPF]}
         />
-        <InputField
-          label="Cupom"
-          id={couponCode}
-          placeholder="Insira aqui"
-          register={register}
-          error={formState.errors[couponCode]}
-          validation={validations[couponCode]}
-        />
+        {selectedAcceptsCoupon && (
+          <InputField
+            label="Cupom"
+            id={couponCode}
+            placeholder="Insira aqui"
+            register={register}
+            error={formState.errors[couponCode]}
+            validation={validations[couponCode]}
+          />
+        )}
         {optionsComponents?.length > 0 && (
           <SelectInstallments
             label="Número de parcelas"
