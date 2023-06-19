@@ -66,3 +66,5 @@ Testes de unidade e integração com o Jest + RTL são importantes para garantir
 ### Fidelidade com o Layout
 "Fidelidade com o layout proposto e atenção a detalhes (pixel perfect)" era um dos quesitos avaliados. No figma, temos alguns espaçamentos com "magic numbers" e algumas inconsistências, por exemplo os botões "primários" não são iguais nas duas telas (font-weight 400 e 700). Eu implementei esses "magic numbers" e inconsistências, para manter a fidelidade com o layout proposto.
 
+### Inconsistência dos dados na tela de sucesso
+O endpoint `/subscription` da API sempre responde os mesmos dados, independente dos dados que foram enviados no request. Logo, quando digitamos no formulário de pagamento nosso nome, CPF e parcelamento, esses dados vão ser enviados corretamente no request. Porém o response vai trazer outros dados, e na tela de sucesso vai mostrar sempre o nome, o CPF e o parcelamento fixo da API.
