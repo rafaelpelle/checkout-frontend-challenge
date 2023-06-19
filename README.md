@@ -52,7 +52,7 @@ Lembre-se que o cypress está configurado para acessar o ambiente [http://localh
 # Explicando algumas decisões:
 
 ### React + Redux
-Talvez fosse mais rápido e menos verboso usar Next.js e React Query, mas escolhi implementar com React e Redux, pois foi comentado na entrevista que a vaga era para trabalhar em um projeto com essa stack.
+Talvez fosse mais rápido e menos verboso usar Next.js e React Query, mas escolhi implementar com React e Redux, pois foi comentado na entrevista que a vaga era para trabalhar em um projeto com essa stack. As sagas também são verbosas, mas traz para o projeto um padrão que ajuda muito no debug.
 
 ### JavaScript vs TypeScript
 Acredito que o TypeScript traga muita qualidade para o projeto, além de deixar a vida dos devs mais fácil em muitas situações. Porém, é comum que ocorram problemas de compatibilidade entre libs e na tipagem de funções importadas dessas libs. Eu decidi pelo JavaScript puro para não ter o risco de atrasar a entrega.
