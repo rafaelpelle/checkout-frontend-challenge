@@ -1,5 +1,10 @@
 # checkout-frontend-challenge
 
+## Live at:
+[https://afya-challenge.rafaelpelle.tech/](https://afya-challenge.rafaelpelle.tech/)
+
+<br>
+
 ## Requisitos para rodar o projeto:
 
 ```
