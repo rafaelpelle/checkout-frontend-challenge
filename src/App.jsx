@@ -24,7 +24,7 @@ function App() {
           <Route exact path={path} element={element} key={path} />
         ))}
 
-        <Route path="*" element={<Navigate to="/checkout" replace />} />
+        <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </BrowserRouter>
   );

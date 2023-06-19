@@ -13,7 +13,7 @@ const StyledBackButton = styled.button`
 function BackButton() {
   return (
     <StyledBackButton>
-      <Link to="/checkout">
+      <Link to="/">
         <img src={leftChevronIconSrc} alt="Back icon" />
       </Link>
     </StyledBackButton>
