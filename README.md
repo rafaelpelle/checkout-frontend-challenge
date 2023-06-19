@@ -62,3 +62,7 @@ Atualmente o react-hook-form é mais popular que o Formik (downloads semanais no
 
 ### Cobertura de testes
 Testes de unidade e integração com o Jest + RTL são importantes para garantir que, quando vamos reusar componentes em diversos lugares de uma aplicação, eles vão se comportar como o esperado. Porém, leva mais tempo para escrever uma quantidade de testes a ponto de cobrir a aplicação de forma significativa. Preferi utilizar o cypress para realizar testes E2E, pelo tempo de implementação e para demonstrar conhecimento nessa ferramenta, que eu acho menos comum que o Jest.
+
+### Fidelidade com o Layout
+"Fidelidade com o layout proposto e atenção a detalhes (pixel perfect)" era um dos quesitos avaliados. No figma, temos alguns espaçamentos com "magic numbers" e algumas inconsistências, por exemplo os botões "primários" não são iguais nas duas telas (font-weight 400 e 700). Eu implementei esses "magic numbers" e inconsistências, para manter a fidelidade com o layout proposto.
+
