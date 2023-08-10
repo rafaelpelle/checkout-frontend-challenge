@@ -5,6 +5,12 @@
 
 <br>
 
+## Descrição do desafio e requisitos técnicos
+
+Click [aqui](challenge.md) para abrir.
+
+<br>
+
 ## Requisitos para rodar o projeto:
 
 ```
