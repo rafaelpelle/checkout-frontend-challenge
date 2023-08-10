@@ -1,7 +1,7 @@
 # checkout-frontend-challenge
 
 ## Live at:
-[https://afya-challenge.rafaelpelle.tech/](https://afya-challenge.rafaelpelle.tech/)
+[https://checkout-challenge.rafaelpelle.tech/](https://checkout-challenge.rafaelpelle.tech/)
 
 <br>
 
